@@ -5,7 +5,7 @@ import csv
 #la sintassi nome_variabile: tipo = valore defisce in origine il tipo  e come sotto funziona con la composizione di oggetti.
 class libro:
     def __init__(self, titolo, autore):
-        self.titolo: str = titolo
+        self.titolo: str = titolo# sintassi del modulo typing
         self.autore: str = autore
 
     def __repr__(self):
