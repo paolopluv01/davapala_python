@@ -30,8 +30,8 @@ class Biblioteca:
     # funzione per scrivere file csv.
     def write_csv(self):
         fields = ['titolo', 'autore']
-        with open('catalogo.csv', 'a', newline='') as csvfile:#aggiungere separatore trai campi.
-            writer = csv.writer(csvfile, delimiter=' ')
+        with open('catalogo.csv', 'a', newline='') as csvfile:
+            writer = csv.writer(csvfile, delimiter=',')
             writer.writerow(fields)
             for row in self.catalogo:
                 writer.writerows([row])
