@@ -9,7 +9,7 @@ class libro:
         self.autore: str = autore
 
     def __repr__(self):
-        return f"il libro: '{self.titolo}', '{self.autore}'"
+        return f"il libro: {self.titolo}, {self.autore}"
     
     def __str__(self) -> str:
         return f"{self.titolo}, {self.autore}"
