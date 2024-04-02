@@ -1,6 +1,6 @@
 import typing
 import csv
-#Modellazione classi
+#--- Modellazione classi ---
 
 #la sintassi nome_variabile: tipo = valore defisce in origine il tipo  e come sotto funziona con la composizione di oggetti.
 class libro:
@@ -29,15 +29,15 @@ class Biblioteca:
             print(l)
     # funzione per scrivere file csv.
     def write_csv(self):
-        fields = ['titolo', 'autore']
+        #fields = ['titolo', 'autore']
         with open('catalogo.csv', 'a', newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=',')
-            writer.writerow(fields[0:1])
+            writer.writerow(['titolo', 'autore'])
             for row in self.catalogo:
                 writer.writerows([row])
 
 
-#Esecuzione script
+#--- Esecuzione script ---
 l1 = libro('Esercizi', 'Dino Bianchi')
 l2 = libro('Manuale', 'Luca Verdi')
 l3 = libro('Faust', 'W. Goethe')
