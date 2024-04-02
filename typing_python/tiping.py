@@ -32,7 +32,7 @@ class Biblioteca:
         fields = ['titolo', 'autore']
         with open('catalogo.csv', 'a', newline='') as csvfile:
             writer = csv.writer(csvfile, delimiter=',')
-            writer.writerow(fields)
+            writer.writerow(fields[0:1])
             for row in self.catalogo:
                 writer.writerows([row])
 
