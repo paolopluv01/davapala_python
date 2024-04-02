@@ -12,7 +12,7 @@ class libro:
         return f"il libro: '{self.titolo}', '{self.autore}'"
     
     def __str__(self) -> str:
-        return f"'{self.titolo}', '{self.autore}'"
+        return f"{self.titolo}, {self.autore}"
 
         
 
