@@ -1,17 +1,18 @@
-import random
-
 
 # -- Modellazione classe +astratta
 class Oggetto_media:
-    def __init__(self, id, titolo, autore):
-        self.id = id
+
+    def __init__(self, titolo, autore):
         self.titolo = titolo
         self.autore = autore
 
-    def _val(self):
+    def __str__(self):
+        return f"{self.titolo}, {self.autore}"# -- È necessaria?
+    
+    '''def _val(self):
         val = id(self)
         return val
-
+'''
 
 
 class Media_collection:
@@ -21,65 +22,110 @@ class Media_collection:
 
     def add_media(self, Oggetto_media):
         self.lista.append(Oggetto_media)
+
+    def stampa_lista(self):
+        for l in self.lista:
+            print(l)
         
     
 
 # -- Modellazione classi derivate -- 
 class Libro(Oggetto_media):
-    def __init__(self, id, titolo, autore, editore, anno):
-        super().__init__(id, titolo, autore)
+    num_progr = 0# -- variabile di classe inizializzata a 0
+    def __init__(self, titolo, autore, editore, anno):
+        super().__init__(titolo, autore)
         self.editore = editore # -- attributi aggiunti alle classi derivate
         self.anno = anno
-        
+        Libro.num_progr += 1# -- variabile di classe, si aggiorna a +1 ad ogni Oggetto creato
+
+    def __str__(self):
+        return f"{self.num_progr}, {self.titolo}, {self.autore}, {self.editore}, {self.anno}"
 
 
 class Quadro(Oggetto_media):
-    def __init__(self, id, titolo, autore, tecnica, anno):
-        super().__init__(id, titolo, autore)
+    num_progr = 0
+    def __init__(self, titolo, autore, tecnica, anno):
+        super().__init__(titolo, autore)
         self.tecnica = tecnica
         self. anno = anno
+        Quadro.num_progr += 1
+
+    def __str__(self):
+        return f"{self.num_progr}, {self.titolo}, {self.autore}, {self.tecnica}, {self.anno}"
 
 
 
 class Film(Oggetto_media):
-    def __init__(self, id, titolo, autore, tecnica, anno):
-        super().__init__(id, titolo, autore)
+    num_progr = 0
+    def __init__(self, titolo, autore, tecnica, anno):
+        super().__init__(titolo, autore)
         self.tecnica = tecnica
         self. anno = anno
+        Film.num_progr += 1
+
+    def __str__(self):
+        return f"{self.num_progr}, {self.titolo}, {self.autore}, {self.tecnica}, {self.anno}"
 
 
 class Biblioteca(Media_collection):
     def __init__(self, nome) -> None:
         super().__init__(nome)
 
-    def add_media(self, Oggetto_media):# -- considerare di inserire il decoratore @
-        if type(Oggetto_media) != Libro:
-            print('Non è un libro!')
+        
+    def add_media(self, Oggetto_media):
+        if type(Oggetto_media) == Libro:
+            super().add_media(Oggetto_media)
+            print('Libro inserito')
         else:
-            return super().add_media(Oggetto_media)
+            print('Inserimento sbagliato') 
 
 
 class Pinacoteca(Media_collection):
     def __init__(self, nome) -> None:
         super().__init__(nome)
 
+    def add_media(self, Oggetto_media):
+        if type(Oggetto_media) == Quadro:
+            super().add_media(Oggetto_media)
+            print('Quadro inserito')
+        else:
+            print('Inserimento sbagliato')
+
 
 class Videoteca(Media_collection):
     def __init__(self, nome) -> None:
         super().__init__(nome)
+
+    def add_media(self, Oggetto_media):
+        if type(Oggetto_media) == Film:
+            super().add_media(Oggetto_media)
+            print('Film inserito')
+        else:
+            print('Inserimento sbagliato')
 
 
 
 
 
 # -- Esecuzione script --
-q1 = Libro(1,'Pinocchio', 'Collodi', 'Utet', '1976')
-f1 = Film(1,'Topolino', 'Walt Disney', 'animazione', '1934')
-d1 = Quadro(3, 'Picasso', 'Ritratto', 'tempera', '1923')
+q1 = Libro('Pinocchio', 'Collodi', 'Utet', '1976')
+q3 = Libro('Iliade', 'Omero', 'Einaudi', '2004')
+q2 = Film('I 3 moschettieri', 'A. Dumas', 'Spliffer', '2018')
+f1 = Film('Topolino', 'Walt Disney', 'animazione', '1934')
+d1 = Quadro('Picasso', 'Ritratto', 'tempera', '1923')
 
 biblio1 = Biblioteca('Comunale')
 biblio1.add_media(q1)
+biblio1.add_media(q3)
 
 pina1 = Pinacoteca('Moderna')
 pina1.add_media(d1)
-print(Libro._val(q1))#-- mostra il valore unico della funzione id che identifica l'oggetto libro q1
+biblio1.stampa_lista()
+b6 = Videoteca('Maxime')
+b6.add_media(q2)
+b6.add_media(f1)
+b6.add_media(q3)
+b6.stampa_lista()
+
+#print(Libro._val(q1))#-- mostra il valore unico della funzione num_progr che num_progrentifica l'oggetto libro q1
+
