@@ -1,0 +1,44 @@
+{
+    "Libro" : [
+        {
+    "titolo": "Pinocchio",
+    "autore": "Collodi",
+    "editore": "Utet",
+    "anno": "1976"
+},
+{  
+   "titolo": "Iliade",
+    "autore": "Omero",
+    "editore": "Spliffer",
+    "anno": "2008"
+}],
+    "Film" : [
+        {
+            "titolo" : "I 3 moschettieri",
+            "autore" : "A. Dumas",
+            "tecnica" : "BW",
+            "anno" : "2018"
+        },
+        {
+            "titolo": "Topolino",
+            "autore": "Walt Disney",
+            "tecnica": "animazione",
+            "anno": "1934"
+        }
+
+    ],
+    "Quadro": [
+        {
+            "titolo": "Ritratto",
+            "autore": "Picasso",
+            "tecnica": "tempera",
+            "anno": "1923"
+        },
+        {
+            "titolo": "Cavalli Blu",
+            "autore": "F. Marc",
+            "tecnica": "acquerello",
+            "anno": "1908"
+        }
+    ]
+}

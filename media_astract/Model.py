@@ -9,10 +9,6 @@ class Oggetto_media:
     def __str__(self):
         return f"{self.titolo}, {self.autore}"# -- È necessaria?
     
-    '''def _val(self):
-        val = id(self)
-        return val
-'''
 
 
 class Media_collection:
@@ -108,11 +104,8 @@ class Videoteca(Media_collection):
 
 
 # -- Esecuzione script --
-q1 = Libro('Pinocchio', 'Collodi', 'Utet', '1976')
-q3 = Libro('Iliade', 'Omero', 'Einaudi', '2004')
-q2 = Film('I 3 moschettieri', 'A. Dumas', 'Spliffer', '2018')
-f1 = Film('Topolino', 'Walt Disney', 'animazione', '1934')
-d1 = Quadro('Picasso', 'Ritratto', 'tempera', '1923')
+'''
+
 
 biblio1 = Biblioteca('Comunale')
 biblio1.add_media(q1)
@@ -126,6 +119,6 @@ b6.add_media(q2)
 b6.add_media(f1)
 b6.add_media(q3)
 b6.stampa_lista()
-
+'''
 #print(Libro._val(q1))#-- mostra il valore unico della funzione num_progr che num_progrentifica l'oggetto libro q1
 
