@@ -6,7 +6,7 @@ class Oggetto_media:
         self.titolo = titolo
         self.autore = autore
 
-    def __str__(self):
+    def __repr__(self):
         return f"{self.titolo}, {self.autore}"# -- È necessaria?
     
 
@@ -34,7 +34,7 @@ class Libro(Oggetto_media):
         self.anno = anno
         Libro.num_progr += 1# -- variabile di classe, si aggiorna a +1 ad ogni Oggetto creato
 
-    def __str__(self):
+    def __repr__(self):
         return f"{self.num_progr}, {self.titolo}, {self.autore}, {self.editore}, {self.anno}"
 
 
@@ -46,7 +46,7 @@ class Quadro(Oggetto_media):
         self. anno = anno
         Quadro.num_progr += 1
 
-    def __str__(self):
+    def __repr__(self):
         return f"{self.num_progr}, {self.titolo}, {self.autore}, {self.tecnica}, {self.anno}"
 
 
@@ -59,7 +59,7 @@ class Film(Oggetto_media):
         self. anno = anno
         Film.num_progr += 1
 
-    def __str__(self):
+    def __repr__(self):
         return f"{self.num_progr}, {self.titolo}, {self.autore}, {self.tecnica}, {self.anno}"
 
 
@@ -70,7 +70,7 @@ class Biblioteca(Media_collection):
         
     def add_media(self, Oggetto_media):
         if type(Oggetto_media) == Libro:
-            super().add_media(Oggetto_media)
+            super().add_media(Libro)
             print('Libro inserito')
         else:
             print('Inserimento sbagliato') 
@@ -102,23 +102,4 @@ class Videoteca(Media_collection):
 
 
 
-
-# -- Esecuzione script --
-'''
-
-
-biblio1 = Biblioteca('Comunale')
-biblio1.add_media(q1)
-biblio1.add_media(q3)
-
-pina1 = Pinacoteca('Moderna')
-pina1.add_media(d1)
-biblio1.stampa_lista()
-b6 = Videoteca('Maxime')
-b6.add_media(q2)
-b6.add_media(f1)
-b6.add_media(q3)
-b6.stampa_lista()
-'''
-#print(Libro._val(q1))#-- mostra il valore unico della funzione num_progr che num_progrentifica l'oggetto libro q1
 
